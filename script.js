@@ -16,9 +16,10 @@ const userForm = document.querySelector("#user-form");
 const calculator = document.querySelector("#calculator");
 //  connect to first number in html file
 const inputOne = document.querySelector("#first-value");
-
 //  connect to second number in html file
 const inputTwo = document.querySelector("#second-value");
+// connect to operator
+const operator = document.querySelector("#operator-select");
 //  connect to output in html file
 const calculatorOutput = document.querySelector("#output");
 /* 
@@ -58,6 +59,16 @@ function handleSubmit(event) {
   console.log(name, email);
 }
 
-userForm.addEventListener("submit", handleSubmit);
+// userForm.addEventListener("submit", handleSubmit);
 
 // Calculator Code
+function calculate(event) {
+  // prevent page refresh
+  event.preventDefault();
+  // check which operator is selected and calculate based on that
+  console.log(inputOne.value, inputTwo.value, operator.value);
+  console.log(typeof inputOne.value);
+  console.log(parseFloat(inputOne.value) + parseFloat(inputTwo.value));
+}
+
+calculator.addEventListener("submit", calculate);
