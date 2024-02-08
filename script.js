@@ -1,14 +1,26 @@
 "use strict";
-``;
 let firstString = "this is our first string. yay!";
 let firstNumber = 42;
 
-// connect to html elements
+// simple examples
 const strElement = document.querySelector("#first-string");
 const numElement = document.querySelector("#first-number");
+
+// user form examples
 const userNameEl = document.querySelector("#user-name");
 const userIdEl = document.querySelector("#user-id");
-const userForm = document.querySelector("form");
+const userForm = document.querySelector("#user-form");
+
+// calculator examples
+//  connect to form itself in html file
+const calculator = document.querySelector("#calculator");
+//  connect to first number in html file
+const inputOne = document.querySelector("#first-value");
+
+//  connect to second number in html file
+const inputTwo = document.querySelector("#second-value");
+//  connect to output in html file
+const calculatorOutput = document.querySelector("#output");
 /* 
 ways to add information to html:
 1. textContent == only text, not style aware
@@ -47,3 +59,5 @@ function handleSubmit(event) {
 }
 
 userForm.addEventListener("submit", handleSubmit);
+
+// Calculator Code
