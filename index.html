@@ -75,6 +75,39 @@
         <header>
           <h2>Calculator</h2>
         </header>
+        <form id="calculator">
+          <!-- 1st value -->
+          <label for="first-value">
+            <input
+              type="number"
+              name="first-value"
+              id="first-value"
+              min="0"
+              max="10"
+            />
+          </label>
+          <!-- 2nd value -->
+          <label for="second-value">
+            <input
+              type="number"
+              name="second-value"
+              id="second-value"
+              min="0"
+              max="10"
+            />
+          </label>
+          <!-- operator -->
+          <label for="operator-select">Operator</label>
+          <select name="operator-select" id="operator-select">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="/">/</option>
+            <option value="*">*</option>
+          </select>
+          <!-- submit button -->
+          <button type="submit">Calculate</button>
+        </form>
+        <h3>Output: <span id="calculator-output"></span></h3>
       </section>
     </main>
   </body>
