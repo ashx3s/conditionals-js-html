@@ -8,6 +8,7 @@ const strElement = document.querySelector("#first-string");
 const numElement = document.querySelector("#first-number");
 const userNameEl = document.querySelector("#user-name");
 const userIdEl = document.querySelector("#user-id");
+const userForm = document.querySelector("form");
 /* 
 ways to add information to html:
 1. textContent == only text, not style aware
@@ -37,3 +38,12 @@ if (!userId) {
 } else {
   userIdEl.textContent = userId;
 }
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const email = userForm.email.value;
+  const name = userForm.username.value;
+  console.log(name, email);
+}
+
+userForm.addEventListener("submit", handleSubmit);

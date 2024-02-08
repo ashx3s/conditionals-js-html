@@ -29,6 +29,46 @@
           <p id="user-id"></p>
         </div>
       </section>
+      <section>
+        <header>
+          <h2>Sign up form</h2>
+          <p>
+            This shows how you could update your variables with content from a
+            form
+          </p>
+        </header>
+        <form>
+          <fieldset>
+            <legend>Sign up Form</legend>
+            <div>
+              <label for="username"><span>*</span> Username:</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="input username"
+              />
+            </div>
+
+            <div>
+              <label for="username">Email:</label>
+              <input type="email" id="email" name="email" />
+            </div>
+            <div>
+              <label for="age">Age: </label>
+              <input type="number" name="age" id="age" min="0" max="100" />
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Create a new Password</legend>
+            <div>
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" />
+            </div>
+          </fieldset>
+          <input type="submit" value="Submit your form friend!" />
+        </form>
+      </section>
     </main>
   </body>
 </html>
