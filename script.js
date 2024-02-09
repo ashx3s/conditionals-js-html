@@ -59,7 +59,6 @@ const calculatorOutput = document.querySelector("#output");
 
 function calculate(event) {
   event.preventDefault();
-
   // DONE: verify that the information passed in are numbers
   if (isNaN(parseFloat(inputOne.value)) || isNaN(parseFloat(inputTwo.value))) {
     console.log("both values need to be numbers");
@@ -78,9 +77,10 @@ function calculate(event) {
   } else if (operator.value === "/") {
     output = parseFloat(inputOne.value) / parseFloat(inputTwo.value);
   } else {
-    console.log("values canot be computed");
+    console.log(
+      `values cannot be computed: Value1 -- ${inputOne.value}, Value2 -- ${inputTwo.value}`
+    );
   }
-
   // DONE: render the output of the equation to the calculatorOutput
   calculatorOutput.textContent = output;
 }
