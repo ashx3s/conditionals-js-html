@@ -68,21 +68,33 @@ function useCalculator(event) {
   // set and calculate output
   let output = calculate(operator, operand1, operand2);
 
-  // log output
-  console.log(output);
+  calculatorOutput.textContent = output;
 }
 
 // calculate helper function
 function calculate(operator, a, b) {
   return operator === "+"
-    ? a + b
+    ? add(a, b)
     : operator === "-"
-    ? a - b
+    ? subtract(a, b)
     : operator === "*"
-    ? a * b
+    ? multiply(a, b)
     : operator === "/"
-    ? a / b
+    ? divide(a, b)
     : "this operator is not allowed";
+}
+
+function add(a, b) {
+  a + b;
+}
+function subtract(a, b) {
+  a - b;
+}
+function multiply(a, b) {
+  a * b;
+}
+function divide(a, b) {
+  a / b;
 }
 
 calculator.addEventListener("submit", useCalculator);
