@@ -58,12 +58,12 @@ function useCalculator(event) {
   // prevent page refresh
   event.preventDefault();
   // get values
-  const operand1 = parseFloat(document.querySelector("#first-value").value);
-  const operand2 = parseFloat(document.querySelector("#second-value").value);
-  const operator = document.querySelector("#operator-select").value;
+  const operand1 = parseFloat(document.querySelector("#operand-1").value);
+  const operand2 = parseFloat(document.querySelector("#operand-2").value);
+  const operator = document.querySelector("#operator").value;
   // Fail Fast
   if (isNaN(operand1) || isNaN(operand2)) {
-    return;
+    throw new Error("Invalid input, both operands should be numbers");
   }
   // set and calculate output
   let output = calculate(operator, operand1, operand2);
