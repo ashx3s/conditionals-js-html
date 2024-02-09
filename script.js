@@ -48,41 +48,52 @@ function handleSubmit(event) {
   console.log(name, email);
 }
 
-// userForm.addEventListener("submit", handleSubmit);
+userForm.addEventListener("submit", handleSubmit);
 
 // Calculator Code
 const calculator = document.querySelector("#calculator");
-const inputOne = document.querySelector("#first-value");
-const inputTwo = document.querySelector("#second-value");
-const operator = document.querySelector("#operator-select");
+
 const calculatorOutput = document.querySelector("#output");
 
-function calculate(event) {
+function useCalculator(event) {
   event.preventDefault();
-  // DONE: verify that the information passed in are numbers
-  if (isNaN(parseFloat(inputOne.value)) || isNaN(parseFloat(inputTwo.value))) {
-    console.log("both values need to be numbers");
-    return;
-  }
+  const inputOne = parseFloat(document.querySelector("#first-value").value);
+  const inputTwo = parseFloat(document.querySelector("#second-value").value);
+  const operator = document.querySelector("#operator-select").value;
 
-  // DONE: calculate a and b variables depending on the selected operator
-  let output;
-  // if the user selects + than add
-  if (operator.value === "+") {
-    output = parseFloat(inputOne.value) + parseFloat(inputTwo.value);
-  } else if (operator.value === "-") {
-    output = parseFloat(inputOne.value) - parseFloat(inputTwo.value);
-  } else if (operator.value === "*") {
-    output = parseFloat(inputOne.value) * parseFloat(inputTwo.value);
-  } else if (operator.value === "/") {
-    output = parseFloat(inputOne.value) / parseFloat(inputTwo.value);
-  } else {
-    console.log(
-      `values cannot be computed: Value1 -- ${inputOne.value}, Value2 -- ${inputTwo.value}`
-    );
+  if (isNaN(inputOne) || isNaN(inputTwo)) {
+    throw new Error("both values need to be numbers");
   }
-  // DONE: render the output of the equation to the calculatorOutput
+  let output = calculate(inputOne, inputTwo, operator);
   calculatorOutput.textContent = output;
 }
 
-calculator.addEventListener("submit", calculate);
+function calculate(a, b, operator) {
+  switch (operator) {
+    case "+":
+      return add(a, b);
+    case "-":
+      return subtract(a, b);
+    case "*":
+      return multiply(a, b);
+    case "/":
+      return divide(a, b);
+    default:
+      console.error(`${operator} is not a valid operator`);
+  }
+}
+
+function add(a, b) {
+  return a + b;
+}
+function subtract(a, b) {
+  return a - b;
+}
+function multiply(a, b) {
+  return a * b;
+}
+function divide(a, b) {
+  return a / b;
+}
+
+calculator.addEventListener("submit", useCalculator);
