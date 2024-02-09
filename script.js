@@ -52,22 +52,25 @@ userForm.addEventListener("submit", handleSubmit);
 
 // Calculator Code
 const calculator = document.querySelector("#calculator");
-
 const calculatorOutput = document.querySelector("#output");
 
 function useCalculator(event) {
   event.preventDefault();
+  // reduces variable duplication
   const inputOne = parseFloat(document.querySelector("#first-value").value);
   const inputTwo = parseFloat(document.querySelector("#second-value").value);
   const operator = document.querySelector("#operator-select").value;
-
+  // check for errors
   if (isNaN(inputOne) || isNaN(inputTwo)) {
     throw new Error("both values need to be numbers");
   }
+  // calcuate with separate function
   let output = calculate(inputOne, inputTwo, operator);
+  // assign output
   calculatorOutput.textContent = output;
 }
 
+// extract logic to improve readability
 function calculate(a, b, operator) {
   switch (operator) {
     case "+":
@@ -83,6 +86,7 @@ function calculate(a, b, operator) {
   }
 }
 
+// helper functions, make more readible and extensible
 function add(a, b) {
   return a + b;
 }
