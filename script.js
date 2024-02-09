@@ -65,10 +65,21 @@ function handleSubmit(event) {
 function calculate(event) {
   // prevent page refresh
   event.preventDefault();
-  // check which operator is selected and calculate based on that
-  console.log(inputOne.value, inputTwo.value, operator.value);
-  console.log(typeof inputOne.value);
-  console.log(parseFloat(inputOne.value) + parseFloat(inputTwo.value));
+  let output;
+  switch (operator.value) {
+    case "+":
+      output = parseFloat(inputOne.value) + parseFloat(inputTwo.value);
+      break;
+    case "-":
+      output = parseFloat(inputOne.value) - parseFloat(inputTwo.value);
+      break;
+    case "*":
+      output = parseFloat(inputOne.value) * parseFloat(inputTwo.value);
+      break;
+    case "/":
+      output = parseFloat(inputOne.value) / parseFloat(inputTwo.value);
+  }
+  console.log(output);
 }
 
 calculator.addEventListener("submit", calculate);
