@@ -59,6 +59,30 @@ const calculatorOutput = document.querySelector("#output");
 
 function calculate(event) {
   event.preventDefault();
+
+  // DONE: verify that the information passed in are numbers
+  if (isNaN(parseFloat(inputOne.value)) || isNaN(parseFloat(inputTwo.value))) {
+    console.log("both values need to be numbers");
+    return;
+  }
+
+  // DONE: calculate a and b variables depending on the selected operator
+  let output;
+  // if the user selects + than add
+  if (operator.value === "+") {
+    output = parseFloat(inputOne.value) + parseFloat(inputTwo.value);
+  } else if (operator.value === "-") {
+    output = parseFloat(inputOne.value) - parseFloat(inputTwo.value);
+  } else if (operator.value === "*") {
+    output = parseFloat(inputOne.value) * parseFloat(inputTwo.value);
+  } else if (operator.value === "/") {
+    output = parseFloat(inputOne.value) / parseFloat(inputTwo.value);
+  } else {
+    console.log("values canot be computed");
+  }
+
+  // DONE: render the output of the equation to the calculatorOutput
+  calculatorOutput.textContent = output;
 }
 
 calculator.addEventListener("submit", calculate);
