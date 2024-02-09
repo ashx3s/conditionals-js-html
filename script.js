@@ -1,8 +1,8 @@
 "use strict";
-let firstString = "this is our first string. yay!";
-let firstNumber = 42;
 
 // simple examples
+let firstString = "this is our first string. yay!";
+let firstNumber = 42;
 const strElement = document.querySelector("#first-string");
 const numElement = document.querySelector("#first-number");
 
@@ -11,17 +11,6 @@ const userNameEl = document.querySelector("#user-name");
 const userIdEl = document.querySelector("#user-id");
 const userForm = document.querySelector("#user-form");
 
-// calculator examples
-//  connect to form itself in html file
-const calculator = document.querySelector("#calculator");
-//  connect to first number in html file
-const inputOne = document.querySelector("#first-value");
-//  connect to second number in html file
-const inputTwo = document.querySelector("#second-value");
-// connect to operator
-const operator = document.querySelector("#operator-select");
-//  connect to output in html file
-const calculatorOutput = document.querySelector("#output");
 /* 
 ways to add information to html:
 1. textContent == only text, not style aware
@@ -62,13 +51,14 @@ function handleSubmit(event) {
 // userForm.addEventListener("submit", handleSubmit);
 
 // Calculator Code
+const calculator = document.querySelector("#calculator");
+const inputOne = document.querySelector("#first-value");
+const inputTwo = document.querySelector("#second-value");
+const operator = document.querySelector("#operator-select");
+const calculatorOutput = document.querySelector("#output");
+
 function calculate(event) {
-  // prevent page refresh
   event.preventDefault();
-  // check which operator is selected and calculate based on that
-  console.log(inputOne.value, inputTwo.value, operator.value);
-  console.log(typeof inputOne.value);
-  console.log(parseFloat(inputOne.value) + parseFloat(inputTwo.value));
 }
 
 calculator.addEventListener("submit", calculate);
