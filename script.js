@@ -51,12 +51,10 @@ function handleSubmit(event) {
 userForm.addEventListener("submit", handleSubmit);
 
 // Calculator Code
-//  connect to form itself in html file
 const calculator = document.querySelector("#calculator");
-//  connect to output in html file
 const calculatorOutput = document.querySelector("#output");
 
-function calculate(event) {
+function useCalculator(event) {
   // prevent page refresh
   event.preventDefault();
   // get values
@@ -67,23 +65,24 @@ function calculate(event) {
   if (isNaN(operand1) || isNaN(operand2)) {
     return;
   }
-  // set output
-  let output;
-  // calculate output
-  switch (operator) {
-    case "+":
-      output = operand1 + operand2;
-      break;
-    case "-":
-      output = operand1 - operand2;
-      break;
-    case "*":
-      output = operand1 * operand2;
-      break;
-    case "/":
-      output = operand1 / operand2;
-  }
+  // set and calculate output
+  let output = calculate(operator, operand1, operand2);
+
+  // log output
   console.log(output);
 }
 
-calculator.addEventListener("submit", calculate);
+// calculate helper function
+function calculate(operator, a, b) {
+  return operator === "+"
+    ? a + b
+    : operator === "-"
+    ? a - b
+    : operator === "*"
+    ? a * b
+    : operator === "/"
+    ? a / b
+    : "this operator is not allowed";
+}
+
+calculator.addEventListener("submit", useCalculator);
