@@ -11,17 +11,6 @@ const userNameEl = document.querySelector("#user-name");
 const userIdEl = document.querySelector("#user-id");
 const userForm = document.querySelector("#user-form");
 
-// calculator examples
-//  connect to form itself in html file
-const calculator = document.querySelector("#calculator");
-//  connect to first number in html file
-const inputOne = document.querySelector("#first-value");
-//  connect to second number in html file
-const inputTwo = document.querySelector("#second-value");
-// connect to operator
-const operator = document.querySelector("#operator-select");
-//  connect to output in html file
-const calculatorOutput = document.querySelector("#output");
 /* 
 ways to add information to html:
 1. textContent == only text, not style aware
@@ -62,22 +51,37 @@ function handleSubmit(event) {
 userForm.addEventListener("submit", handleSubmit);
 
 // Calculator Code
+//  connect to form itself in html file
+const calculator = document.querySelector("#calculator");
+//  connect to output in html file
+const calculatorOutput = document.querySelector("#output");
+
 function calculate(event) {
   // prevent page refresh
   event.preventDefault();
+  // get values
+  const operand1 = parseFloat(document.querySelector("#first-value").value);
+  const operand2 = parseFloat(document.querySelector("#second-value").value);
+  const operator = document.querySelector("#operator-select").value;
+  // Fail Fast
+  if (isNaN(operand1) || isNaN(operand2)) {
+    return;
+  }
+  // set output
   let output;
-  switch (operator.value) {
+  // calculate output
+  switch (operator) {
     case "+":
-      output = parseFloat(inputOne.value) + parseFloat(inputTwo.value);
+      output = operand1 + operand2;
       break;
     case "-":
-      output = parseFloat(inputOne.value) - parseFloat(inputTwo.value);
+      output = operand1 - operand2;
       break;
     case "*":
-      output = parseFloat(inputOne.value) * parseFloat(inputTwo.value);
+      output = operand1 * operand2;
       break;
     case "/":
-      output = parseFloat(inputOne.value) / parseFloat(inputTwo.value);
+      output = operand1 / operand2;
   }
   console.log(output);
 }
