@@ -59,7 +59,7 @@ function handleSubmit(event) {
   console.log(name, email);
 }
 
-// userForm.addEventListener("submit", handleSubmit);
+userForm.addEventListener("submit", handleSubmit);
 
 // Calculator Code
 function calculate(event) {
